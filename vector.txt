@@ -1,0 +1,109 @@
+stl -->
+ 
+
+ 1. Vector<int>
+    
+        vector<int> v;
+        sort(v.begin(),v.end())
+        length = v.size()
+       to insert -> v.push_back(element)
+      to withdraw-> v.pop_back()
+      vector< pair<int,int> >
+    1. min_element returns an iterator pointing towards the minimum element.
+        Ex- min_element(v.begin(),v.end()); min_element({starting pointer}, {last pointer})
+        max_element returns maximum      
+    2.accumulate({starting pointer}, {last pointer}, starting sum)-> gives sum.
+    3. count({starting pointer}, {last pointer}, element) -> counts the number of times the element appears in the vector.
+    4. find({starting pointer}, {last pointer}, element)-> finds the element in the vector and returns the pointer, if not present then returns the last iterator i.e v.end() 
+    5. reverse({starting pointer}, {last pointer}) -> reverse the string/array
+2. map<int,int>...
+    map<key, value> m;
+    maps don't store values in contiguous form;
+    to insert
+    {
+        ma[1]="abc";          // takes O(log(n)) time complexity
+        or m.insert({4, "afg"});
+
+    }
+    to access the map use iterators
+    map<int,int> :: iterator it;
+    for(it=m.begin();it!=m.end();++it)      //m.end() refers to the null pointer next to the last element
+    {
+        it->first || (*it).first //for key
+        it->second || (*it).second //for value
+    } 
+    OR 
+    for(auto &pr : m){
+        cout<<pr.first<<" "<<pr.second<<endl;
+    }
+    repetition doesn't happen, second value replaces ths first value;
+    <unique keys are stored> <keys are stored in sorted order>
+    m.find(key) returns the iterator pointing towards that key, if not present it returns m.end();
+    m.erase(key) or 
+    {
+       auto it = m.find(key);
+       m.erase(it);  // erases the the key, it is pointing towards
+    }
+    m.clear(); // clears the map;
+
+    unordered_map<int,int> m;  //time complexity O(1)
+    m.find() && m.erase()  //O(1)
+    
+
+
+
+3. set<string/int/...> 
+       time complexity is O(logn)
+       to insert element use set.insert()
+       to find use set.find()
+       to erase use set.erase() {can pass both value and iterator}
+       s.end() is the iterator of the element(blank) after the last element of set 
+       in s.find() if the iterator doesn't exist then it returns s.end()
+       use clear() to empty the set
+
+   unordered_set<>     -> use it wherever order doesn't matter
+       time complexity is o(1)
+   multiset<>        -> repeats the values inserted
+       time complexity is o(logn)
+  
+4. pair<int,string> p;
+   p=make_pair(value,value) ->to insert a pair;
+   or use p={value,value};
+   pair.first & pair.second to call the values;
+    pair<int, int> p_a[] -> to make an array of pairs;
+    swap(p_a[0],p_a[3])  -> to swap the pairs from index 0 to 3;
+5. stack (if second loop depends on the first then use stack)
+    push() -> to insert an element
+    pop() -> to withdraw the topmost max_element
+    top() -> to look at the top element
+    peak(index) -> to look at the element at the required index
+    isEmpty()/isFull() -> to check whether the stack is empty/full;
+6. queue 
+    two pointers: front & back 
+    enqueue(x) -> to insert from the back (similar to push(x))(back++)
+    dequeue() ->  to remove from front (similar to pop())(front++)
+    peak() -> to see the front element
+    empty() -> tells if queue is empty or not (when front becomes greater than back) 
+7. ascii -> int(x) gives ascii value of x;
+    a -> 97
+    A -> 65
+     to print ascii
+     char c = 'A'; 
+     cout << "The ASCII value of " << c << " is " << int(c);
+8. sort algorithm
+    void sort(int arr[], int n)
+    {
+        bool swapped;
+        for(int i=0;i<n;i++){
+            swapped=false;
+            for(int j=0; j<n-i-1; j++ ){
+                if(arr[n]<arr[n+1])
+                {
+                    swap(arr[n], arr[n+1]);
+                    swapped=true;
+                }
+            }
+            if(swapped==false) break;
+        }
+        
+    }
